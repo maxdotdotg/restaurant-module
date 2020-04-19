@@ -18,7 +18,10 @@ mod front_of_house {
 
 }
 
-// sample usage of module paths
+// "Our preference is to specify absolute paths because it’s more likely to 
+// move code definitions and item calls independently of each other."
+// ch07-03-paths-for-referring-to-an-item-in-the-module-tree
+
 pub fn eat_at_restaurant() {
 // using absolute paths with the `crate` keyword
 crate::front_of_house::hosting::add_to_waitlist();
@@ -26,8 +29,8 @@ crate::front_of_house::hosting::add_to_waitlist();
 // using relative paths
 // because these modules are at the same level of the module/dir structure
 front_of_house::hosting::add_to_waitlist();
-
 }
+
 
 #[cfg(test)]
 mod tests {
