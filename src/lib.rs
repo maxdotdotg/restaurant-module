@@ -18,6 +18,17 @@ mod front_of_house {
 
 }
 
+// sample usage of module paths
+pub fn eat_at_restaurant() {
+// using absolute paths with the `crate` keyword
+crate::front_of_house::hosting::add_to_waitlist();
+
+// using relative paths
+// because these modules are at the same level of the module/dir structure
+front_of_house::hosting::add_to_waitlist();
+
+}
+
 #[cfg(test)]
 mod tests {
     #[test]
