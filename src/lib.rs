@@ -1,6 +1,7 @@
 // modules start with "mod" derf
 // and can have nested modules
 
+/* moved to front_of_house.rs
 mod front_of_house {
     // child module of front_of_house
     pub mod hosting {
@@ -15,6 +16,10 @@ mod front_of_house {
         fn take_payment() {}
     }
 }
+*/
+
+mod front_of_house;
+pub use crate::front_of_house::hosting;
 
 // "Our preference is to specify absolute paths because it’s more likely to
 // move code definitions and item calls independently of each other."
@@ -22,11 +27,20 @@ mod front_of_house {
 
 pub fn eat_at_restaurant() {
     // using absolute paths with the `crate` keyword
-    crate::front_of_house::hosting::add_to_waitlist();
+    //crate::front_of_house::hosting::add_to_waitlist();
+
+    // front_of_house module was moved to it's own file
+    // so we have to update the path
+    hosting::add_to_waitlist();
 
     // using relative paths
     // because these modules are at the same level of the module/dir structure
-    front_of_house::hosting::add_to_waitlist();
+    //front_of_house::hosting::add_to_waitlist();
+
+    // front_of_house module was moved to it's own file
+    // so we have to update the path
+    hosting::add_to_waitlist();
+
 
     // order breakfast in the summer with rye toast
     let mut meal = back_of_house::Breakfast::summer("Rye");
