@@ -1,9 +1,7 @@
 // moved from lib.rs
 
-pub mod hosting {
-    pub fn add_to_waitlist() {}
-    fn seat_at_table() {}
-}
+// load hosting.rs
+pub mod hosting;
 
 // child module of front_of_house
 mod serving {
